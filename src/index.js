@@ -41,5 +41,10 @@ function addBreed(breed){
     let dogList = document.createElement('li');
     dogList.innerText = breed;
     breedList.appendChild(dogList);
-       
+    dogList.style.cursor = 'pointer';
+    dogList.addEventListener('click', changeColor);
+}
+
+function changeColor(event){
+    event.target.style.color = 'aqua';
 }
