@@ -2,6 +2,7 @@ console.log('%c HI', 'color: firebrick')
 
 document.addEventListener('DOMContentLoaded', function(){
     fetchDogPics();
+    fetchDogBreeds();
 })
 
 function fetchDogPics(){
@@ -18,4 +19,27 @@ function renderDogs(dogPicsUrl){
     let newPic = document.createElement('img');
     newPic.src = dogPicsUrl;
     images.appendChild(newPic);
+}
+
+function fetchDogBreeds(){
+    const breedUrl = 'https://dog.ceo/api/breeds/list/all'
+    fetch(breedUrl)
+    .then(response => response.json())
+    .then(json => {
+        breeds = Object.keys(json.message);
+        renderBreeds(breeds);
+    });
+}
+
+function renderBreeds(breeds){
+    const breedList = document.getElementById("dog-breeds");
+    breeds.forEach(breed => addBreed(breed));
+}
+
+function addBreed(breed){
+    let breedList = document.getElementById("dog-breeds");
+    let dogList = document.createElement('li');
+    dogList.innerText = breed;
+    breedList.appendChild(dogList);
+       
 }
