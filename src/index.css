@@ -1,0 +1,26 @@
+hr {
+  break-before: auto;
+}
+
+div#gallery {
+  margin: 10px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 180px;
+}
+
+div#gallery:hover {
+  border: 1px solid #777;
+}
+
+div#gallery img {
+  width: 100%;
+  height: auto;
+}
+
+ul {
+  
+  width: 20px;
+  height: 40px;
+  object-fit: cover;
+}
